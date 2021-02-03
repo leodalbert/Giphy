@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import Favorites from './components/Favorites';
+import { selectFavoriteGifs } from 'selectors/favorites';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  gifs: selectFavoriteGifs(state),
+});
 
 const mapDispatchToProps = {};
 
