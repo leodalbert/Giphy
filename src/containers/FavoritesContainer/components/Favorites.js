@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Gif from 'containers/GifContainer';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,10 +23,14 @@ const renderCards = (gifs) => {
   });
 };
 
-const SearchResults = ({ gifs }) => {
+const FavoritesContainer = ({ gifs, getFaves, loading }) => {
   const classes = useStyles();
+  useEffect(() => {
+    getFaves();
+  }, [getFaves]);
   return (
     <Container style={{ marginTop: '90px' }}>
+      {loading && <LinearProgress />}
       <Grid container>
         <Grid
           container
@@ -41,8 +45,8 @@ const SearchResults = ({ gifs }) => {
   );
 };
 
-SearchResults.propTypes = {
+FavoritesContainer.propTypes = {
   gifs: PropTypes.array.isRequired,
 };
 
-export default SearchResults;
+export default FavoritesContainer;

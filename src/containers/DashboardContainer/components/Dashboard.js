@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = ({ searchGifs, searchResults, loading }) => {
-  console.log(searchResults);
   const classes = useStyles();
+
   return (
     <div style={{ marginTop: '74px' }}>
       {loading && <LinearProgress />}

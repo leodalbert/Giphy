@@ -3,6 +3,7 @@ export const REMOVE_FAV_GIF = 'REMOVE_FAV_GIF';
 export const SELECT_GIF = 'SELECT_GIF';
 export const GET_TRENDING = 'GET_TRENDING';
 export const GET_SEARCH = 'GET_SEARCH';
+export const GET_FAVES = 'GET_FAVES';
 export const SEARCH_LOADING = 'SEARCH_LOADING';
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
