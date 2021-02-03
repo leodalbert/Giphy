@@ -13,8 +13,15 @@ const network = () => {
     return axios.get(`${baseUrl}/gifs/trending`, config);
   };
 
+  //   Get 25 trending Gifs
+  const searchGifs = (str) => {
+    const config = { params };
+    return axios.get(`${baseUrl}/gifs/search?q=${str}&`, config);
+  };
+
   return {
     getTrendingGifs,
+    searchGifs,
   };
 };
 
