@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Dashboard from './components/Dashboard';
 import { getTrending, searchGifs } from 'actions/dashboad';
+import { addFave } from 'actions/favorites';
 import {
   selectDashboardLoading,
   selectSearchResults,
@@ -11,7 +12,7 @@ const mapStateToProps = (state) => ({
   searchResults: selectSearchResults(state),
 });
 
-const mapDispatchToProps = { getTrending, searchGifs };
+const mapDispatchToProps = { getTrending, searchGifs, addFave };
 
 const DashboardContainer = connect(
   mapStateToProps,

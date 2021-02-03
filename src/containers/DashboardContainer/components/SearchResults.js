@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import GifSmall from 'components/Common/GifSmall';
+import Gif from 'containers/GifContainer';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -17,7 +17,7 @@ const renderCards = (gifs) => {
   return gifs.map((gif) => {
     return (
       <Grid key={gif.id} item>
-        <GifSmall gif={gif} />
+        <Gif gif={gif} />
       </Grid>
     );
   });

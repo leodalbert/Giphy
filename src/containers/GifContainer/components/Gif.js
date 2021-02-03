@@ -12,15 +12,34 @@ import CardMedia from '@material-ui/core/CardMedia';
 //   //   },
 // });
 
-const GifSmall = ({
+const isFave = (faveIds, id) => {
+  return faveIds.some((faveId) => faveId === id);
+};
+
+const Gif = ({
+  gif,
   gif: {
+    id,
     fixed_height: { url, height, width },
   },
+  faveIds,
+  removeFave,
+  addFave,
 }) => {
   //   const classes = useStyles();
+  const handleClick = () => {
+    if (!isFave(faveIds, id)) {
+      addFave(gif);
+    } else {
+      removeFave(id);
+    }
+  };
 
   return (
-    <Card raised style={{ height: height + 'px', width: width + 'px' }}>
+    <Card
+      raised
+      style={{ height: height + 'px', width: width + 'px' }}
+      onClick={handleClick}>
       <CardActionArea>
         <CardMedia
           component='img'
@@ -33,8 +52,8 @@ const GifSmall = ({
   );
 };
 
-GifSmall.propTypes = {
+Gif.propTypes = {
   gif: PropTypes.object.isRequired,
 };
 
-export default GifSmall;
+export default Gif;
