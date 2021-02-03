@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import Alert from './comonents/Alert';
+import { removeAlert } from 'actions/favorites';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  alert: state.alerts.alert,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { removeAlert };
 
 const AlertContainer = connect(mapStateToProps, mapDispatchToProps)(Alert);
 

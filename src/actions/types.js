@@ -4,3 +4,5 @@ export const SELECT_GIF = 'SELECT_GIF';
 export const GET_TRENDING = 'GET_TRENDING';
 export const GET_SEARCH = 'GET_SEARCH';
 export const SEARCH_LOADING = 'SEARCH_LOADING';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';

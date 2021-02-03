@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static' color='secondary'>
+      <AppBar position='fixed' color='secondary'>
         <Toolbar className={classes.wrapper}>
           <IconButton edge='end' component={Link} to='/'>
             <img src={logo} alt='logo' className={classes.navbarLogo} />

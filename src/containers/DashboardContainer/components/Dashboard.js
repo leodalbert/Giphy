@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Collapse, Container, LinearProgress, Slide } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,7 +16,7 @@ const Dashboard = ({ searchGifs, searchResults, loading }) => {
   console.log(searchResults);
   const classes = useStyles();
   return (
-    <Fragment>
+    <div style={{ marginTop: '74px' }}>
       {loading && <LinearProgress />}
       <Collapse in={searchResults.length === 0} collapsedHeight={5}>
         <div style={{ minHeight: '30vh' }} />
@@ -33,7 +33,7 @@ const Dashboard = ({ searchGifs, searchResults, loading }) => {
           <SearchResults gifs={searchResults} />
         </Container>
       </Slide>
-    </Fragment>
+    </div>
   );
 };
 

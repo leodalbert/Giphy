@@ -1,8 +1,8 @@
 import produce from 'immer';
-import { ADD_FAV_GIF, REMOVE_FAV_GIF } from 'actions/types';
+import { SET_ALERT, REMOVE_ALERT } from 'actions/types';
 
 export const initialState = {
-  favorites: [],
+  alert: '',
 };
 
 /* eslint-disable no-param-reassign */
@@ -10,11 +10,11 @@ const dashboard = (state = initialState, action) =>
   produce(state, (draft) => {
     const { type, payload } = action;
     switch (type) {
-      case ADD_FAV_GIF:
-        draft.favorites.push(payload);
+      case SET_ALERT:
+        draft.alert = payload;
         break;
-      case REMOVE_FAV_GIF:
-        draft.favorites = state.favorites.filter((gif) => gif.id !== payload);
+      case REMOVE_ALERT:
+        draft.alert = '';
         break;
       default:
         break;
