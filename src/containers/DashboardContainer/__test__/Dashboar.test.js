@@ -17,13 +17,21 @@ describe('The Dashboard Component', () => {
   };
 
   it('should display a search box and no progressbar', () => {
-    render(<Dashboard {...defaultProps} />);
+    render(
+      <Provider store={store}>
+        <Dashboard {...defaultProps} />
+      </Provider>
+    );
     expect(screen.queryByRole('textbox')).toBeTruthy();
     expect(screen.queryByRole('progressbar')).toBeFalsy();
   });
 
   it('should display a progress bar when loading', () => {
-    render(<Dashboard {...defaultProps} loading={true} />);
+    render(
+      <Provider store={store}>
+        <Dashboard {...defaultProps} loading={true} />
+      </Provider>
+    );
     expect(screen.queryByRole('progressbar')).toBeTruthy();
   });
 

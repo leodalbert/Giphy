@@ -5,7 +5,14 @@ import { GET_TRENDING, GET_SEARCH, SEARCH_LOADING } from './types';
 export const getTrending = () => async (dispatch) => {
   try {
     const res = await network.getTrendingGifs();
-    dispatch({ type: GET_TRENDING, payload: res.data.data });
+    dispatch({
+      type: GET_TRENDING,
+      payload: res.data.data.map((gif) => ({
+        id: gif.id,
+        original: gif.images.original,
+        fixed_height: gif.images.fixed_height_downsampled,
+      })),
+    });
   } catch (err) {
     console.log(err);
   }

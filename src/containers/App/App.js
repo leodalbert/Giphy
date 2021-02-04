@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 
 import Navigation from 'containers/NavigationContainer';
 import { getFaves } from 'actions/favorites';
+import { getTrending } from 'actions/dashboad';
 
 //  Material Ui
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './meta/theme';
 
-const App = ({ getFaves }) => {
+const App = ({ getFaves, getTrending }) => {
   // load initial preserved faves from JSON-db
   useEffect(() => {
     getFaves();
-  }, [getFaves]);
+    getTrending();
+  }, [getFaves, getTrending]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -24,4 +26,4 @@ const App = ({ getFaves }) => {
   );
 };
 
-export default connect(null, { getFaves })(App);
+export default connect(null, { getFaves, getTrending })(App);
