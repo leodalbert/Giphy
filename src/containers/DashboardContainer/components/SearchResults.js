@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Gif from 'containers/GifContainer';
 import { Grid } from '@material-ui/core';
@@ -23,10 +23,10 @@ const renderCards = (gifs) => {
   });
 };
 
-const SearchResults = forwardRef(({ gifs }, ref) => {
+export const SearchResults = ({ gifs }) => {
   const classes = useStyles();
   return (
-    <Grid container ref={ref}>
+    <Grid container>
       <Grid
         container
         spacing={3}
@@ -37,7 +37,7 @@ const SearchResults = forwardRef(({ gifs }, ref) => {
       </Grid>
     </Grid>
   );
-});
+};
 
 SearchResults.propTypes = {
   gifs: PropTypes.array.isRequired,

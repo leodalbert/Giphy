@@ -24,11 +24,7 @@ const Dashboard = ({ searchGifs, searchResults, loading }) => {
       <div className={classes.SearchField}>
         <SearchField searchGifs={searchGifs} />
       </div>
-      <Slide
-        direction='up'
-        in={searchResults.length > 0}
-        mountOnEnter
-        unmountOnExit>
+      <Slide direction='up' in={searchResults.length > 0}>
         <Container>
           <SearchResults gifs={searchResults} />
         </Container>
