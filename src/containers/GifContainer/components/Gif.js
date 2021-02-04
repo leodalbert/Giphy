@@ -40,9 +40,9 @@ const Gif = ({
 
 Gif.propTypes = {
   gif: PropTypes.object.isRequired,
+  faveIds: PropTypes.array.isRequired,
+  removeFave: PropTypes.func.isRequired,
+  addFave: PropTypes.func.isRequired,
 };
 
-const areEqual = (prevProps, nextProps) => {
-  return prevProps.gif === nextProps.gif;
-};
-export default memo(Gif, areEqual);
+export default memo(Gif);

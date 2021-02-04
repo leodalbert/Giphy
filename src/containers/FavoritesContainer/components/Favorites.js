@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Gif from 'containers/GifContainer';
 import { Grid, Container, LinearProgress } from '@material-ui/core';
@@ -23,11 +23,8 @@ const renderCards = (gifs) => {
   });
 };
 
-const FavoritesContainer = ({ gifs, getFaves, loading }) => {
+const FavoritesContainer = ({ gifs, loading }) => {
   const classes = useStyles();
-  useEffect(() => {
-    getFaves();
-  }, [getFaves]);
   return (
     <Container style={{ marginTop: '90px' }}>
       {loading && <LinearProgress />}
@@ -47,6 +44,7 @@ const FavoritesContainer = ({ gifs, getFaves, loading }) => {
 
 FavoritesContainer.propTypes = {
   gifs: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default FavoritesContainer;

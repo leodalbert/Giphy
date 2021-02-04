@@ -19,8 +19,10 @@ const dashboard = (state = initialState, action) =>
         draft.favorites.push(payload);
         break;
       case REMOVE_FAV_GIF:
-        draft.favorites = state.favorites.filter((gif) => gif.id !== payload);
-        break;
+        return {
+          ...state,
+          favorites: state.favorites.filter((gif) => gif.id !== payload),
+        };
       default:
         break;
     }

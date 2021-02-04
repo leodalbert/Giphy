@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Navigation from 'containers/NavigationContainer';
+import { getFaves } from 'actions/favorites';
 
 //  Material Ui
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './meta/theme';
 
-const App = () => {
+const App = ({ getFaves }) => {
+  // load initial preserved faves from JSON-db
+  useEffect(() => {
+    getFaves();
+  }, [getFaves]);
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -17,4 +24,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect(null, { getFaves })(App);

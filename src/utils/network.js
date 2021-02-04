@@ -7,21 +7,39 @@ const network = () => {
     api_key: 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw',
   };
 
-  //   Get 25 trending Gifs
+  //   GET 25 trending Gifs
   const getTrendingGifs = () => {
     const config = { params };
     return axios.get(`${baseUrl}/gifs/trending`, config);
   };
 
-  //   Get 25 trending Gifs
+  //   GET 50 gifs by search str
   const searchGifs = (str) => {
     const config = { params };
     return axios.get(`${baseUrl}/gifs/search?q=${str}&`, config);
   };
 
+  // POST Gif to favorites
+  const addGiff = (gif) => {
+    return axios.post('faves', gif);
+  };
+
+  // DELETE Gif from favorites
+  const deleteGif = (id) => {
+    return axios.delete(`faves/${id}`);
+  };
+
+  // GET all faves
+  const getFaves = () => {
+    return axios.get('/faves');
+  };
+
   return {
     getTrendingGifs,
     searchGifs,
+    addGiff,
+    deleteGif,
+    getFaves,
   };
 };
 

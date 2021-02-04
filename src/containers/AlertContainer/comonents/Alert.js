@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import Slide from '@material-ui/core/Slide';
@@ -47,4 +48,8 @@ const slideTransition = (props) => {
   return <Slide {...props} direction='right' />;
 };
 
+Alert.propTypes = {
+  alert: PropTypes.string.isRequired,
+  removeAlert: PropTypes.func.isRequired,
+};
 export default Alert;
