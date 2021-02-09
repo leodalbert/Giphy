@@ -27,7 +27,9 @@ const FavoritesContainer = ({ gifs, loading }) => {
   const classes = useStyles();
   return (
     <Container style={{ marginTop: '90px' }}>
-      {loading && <LinearProgress />}
+      {
+        // loading && <LinearProgress />
+      }
       <Grid container>
         <Grid
           container

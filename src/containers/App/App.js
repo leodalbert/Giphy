@@ -13,7 +13,7 @@ import theme from './meta/theme';
 const App = ({ getFaves, getTrending }) => {
   // load initial preserved faves from JSON-db
   useEffect(() => {
-    getFaves();
+    // getFaves();
     getTrending();
   }, [getFaves, getTrending]);
 
